@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+#ifndef CRUISESHIP_H
+#define CRUISESHIP_H
+#include "Ship.h"
 
-namespace ConsoleApp1
-{
-    internal class CrusieShip
-    {
+class CruiseShip : public Ship {
+private:
+    int maxPassengers;
+public:
+    CruiseShip(std::string n, std::string y, int m) : Ship(n, y), maxPassengers(m) {}
+    void setMaxPassengers(int m) { maxPassengers = m; }
+    int getMaxPassengers() const { return maxPassengers; }
+    void print() const override {
+        std::cout << "Cruise Ship Name: " << getName() << ", Max Passengers: " << maxPassengers << std::endl;
     }
-}
+};
+
+#endif
